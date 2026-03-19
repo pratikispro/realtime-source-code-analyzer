@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Source Code Analyzer</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="app-header">
+        <div class="header-content">
+            <h1>Source Code Analyzer</h1>
+            <p class="subtitle">AI-powered codebase exploration using RAG</p>
+        </div>
+    </header>
+
+    <div class="main-container">
+
+        <div class="repo-section">
+            <div class="repo-input-group">
+                <div class="input-icon">&#128230;</div>
+                <input type="text" id="repoUrl" placeholder="Paste a GitHub repository URL (e.g., https://github.com/user/repo)" autocomplete="off">
+                <button id="ingestBtn" onclick="ingestRepo()">
+                    <span class="btn-text">Analyze Repository</span>
+                    <span class="btn-loader" style="display:none;">Processing...</span>
+                </button>
+            </div>
+            <div id="repoStatus" class="repo-status"></div>
+        </div>
+
+        <div class="chat-section">
+            <div id="chatBox" class="chat-box">
+                <div class="message bot-message">
+                    <div class="message-avatar">&#129302;</div>
+                    <div class="message-content">
+                        <p>Welcome to <strong>Source Code Analyzer</strong>!</p>
+                        <p>To get started:</p>
+                        <ol>
+                            <li>Paste a GitHub repository URL above</li>
+                            <li>Click <strong>Analyze Repository</strong></li>
+                            <li>Ask questions about the code below</li>
+                        </ol>
+                        <p class="hint">Try a small repo like: <code>https://github.com/dbader/schedule</code></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chat-input-section">
+                <div class="chat-input-group">
+                    <input type="text" id="userQuestion" placeholder="Ask a question about the code..." autocomplete="off" onkeypress="handleKeyPress(event)">
+                    <button id="sendBtn" onclick="sendQuestion()">Send</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="app-footer">
+        <p>Built with Flask, LangChain, ChromaDB, Groq</p>
+    </footer>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
