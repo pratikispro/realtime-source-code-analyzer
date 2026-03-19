@@ -2,7 +2,7 @@
 
 A generative AI-powered web application that lets you point any public GitHub repository at the system and ask natural-language questions about its codebase. The system clones the repository, indexes Python source files into a vector store, and answers questions using Retrieval-Augmented Generation (RAG) with conversational memory.
 
-![System Architecture](Generated_image342423.png)
+![System Architecture](./asset/system-architecture.png)
 
 ---
 
